@@ -10,8 +10,10 @@ public class PlayerHealth : MonoBehaviour
 
     public float maxhealth;
     public float currentHealth;
-
+    public GameManager gameManager;
     public Slider healthSlider;
+
+    private bool isDead;
     private void Awake()
     {
         instance = this;
@@ -33,9 +35,11 @@ public class PlayerHealth : MonoBehaviour
     {
 
         currentHealth -= damage;
-        if(currentHealth <= 0)
+        if(currentHealth <= 0 && !isDead)
         {
+            isDead = false;
             gameObject.SetActive(false);
+            gameManager.gameOver();
         }
         healthSlider.value = currentHealth;
     }

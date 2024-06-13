@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TorchWeapon : WeaponController
+public class TorchWeapon : MonoBehaviour
 {
     public float rotateSpeed;
     public Transform holder;
